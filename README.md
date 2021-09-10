@@ -192,3 +192,29 @@ Un objeto en JavaScript es una colección de propiedades. Una propiedad en JavaS
 Los objetos en JavaScript, al ser un lenguaje basado en prototipos, heredan propiedades de otros objetos por medio del prototipo.
  
 Podemos construir objetos de dos formas: De la “nada” (o también llamado objeto literal) o clonando un objeto ya existente. En la mayoría de lenguajes que soportan prototipos existe una clase raíz (por lo general llamada Object) que tiene las propiedades mínimas necesarias para la creación de objetos.
+
+
+## Abstracción
+
+Un proceso general de abstracción consiste en distinguir las propiedades o características del objeto de estudio del objeto de estudio en sí.
+
+Ésto es justo lo que se hace en POO cuando se identifican los elementos que interactúan en un sitema (un programa, aplicación, plataforma, etc) y luego se abstraen los atributos y métodos de dichos elementos para crear con ellos un “molde”.
+
+## Encapsulamiento
+
+La encapsulación es el empaquetamiento de datos y funciones en un componente (por ejemplo, una clase) y para luego controlar el acceso a ese componente para hacer un ejecto de “caja negra” fuera del objeto. Debido a esto, un usuario de esa clase solo necesita conocer su interfaz (es decir, los datos y las funciones expuestas fuera de la clase), no la implementación oculta.
+
+¿Qué es lo que podemos hacer con encapsulamiento?
+- Esconder métodos y atributos
+- No permitir la alteración de métodos y atributos
+
+> hey! pero en JS no puedes esconder los métodos ni los atributos! todo es público!
+
+Bueno, tiene razón, en JS no se puede esconder métodos y atributos (para hacerlo se necesita un entendimiento profundo de JS lo cual no se ha de llegar con este curso asi que por ahora lo dejamos en que no podemos) pero si podemos no permitir la alteracion de estos.
+
+### Formas de encapsular en JS
+- Getters y setters
+- Namespaces
+- Object.defineProperties
+- Módulos de ES6
+
