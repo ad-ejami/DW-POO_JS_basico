@@ -20,11 +20,22 @@ class Course{
 		// teacher,
 		classes = [],
 	}){
-		this.name = name;
+		this._name = name;
 		// this.teacher = teacher;
 		this.classes = classes;
 	}
+	get name(){
+		return this._name;
 }
+	set name(NuevoNombre){
+		if (NuevoNombre === "Nombre malo"){
+				console.error("Web... error name");
+		}else{
+				this._name = NuevoNombre;
+		}
+	}
+}
+
 const cursoProgBasica = new Course({
 	name: "Curso Gratis de Programación Básica",
 })
@@ -40,8 +51,8 @@ class LearningPath{
 		name,
 		courses = [],
 	}){
-		this.name = name;
-		this.courses = courses;
+		this._name = name;
+		this._courses = courses;
 	}
 }
 const escuelaWeb = new LearningPath({
@@ -79,16 +90,28 @@ class Student {
 		approvedCourses = [],
 		learningPaths = [],
 	}) {
-		this.name = name;
-		this.email = email;
-		this.username = username;
-		this.socialMedia = {
+		this._name = name;
+		this._email = email;
+		this._username = username;
+		this._socialMedia = {
 			twitter,
 			instagram,
 			facebook,
 		};
-		this.approvedCourses = approvedCourses;
-		this.learningPaths = learningPaths;
+		this._approvedCourses = approvedCourses;
+		this._learningPaths = learningPaths;
+	}
+	get name(){
+		return this._name;
+	}
+	get email(){
+		return this.email;
+	}
+	get username(){
+		return this._username;
+	}
+	get socialMedia(){
+		return this._socialMedia;
 	}
 }
 

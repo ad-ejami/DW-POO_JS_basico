@@ -218,3 +218,112 @@ Bueno, tiene razón, en JS no se puede esconder métodos y atributos (para hacer
 - Object.defineProperties
 - Módulos de ES6
 
+## Usando getters y setters
+
+Si no queremos que los atributos y metodos se llamen desde afuera de nuestro prototipo se les debe agregar un ``_``
+```js
+class Course{
+	constructor({
+		name,
+		classes = [],
+	}){
+		this._name = name; //Estamos escondiendo el atributo name en nuestro prototipo Course
+		this.classes = classes;
+	}
+}
+const cursoProgBasica = new Course({
+	name: "Curso Gratis de Programación Básica",
+});
+```
+pero como conseguimos el nombre del curso ahora?
+lo hacemos usando la palabra reservada ``get`` y el nombre de nuestro atributo
+
+```js
+class Course{
+	...
+    get name(){
+        return this._name;
+    }
+}
+
+cursoProgBasica.name = "";
+```
+y si quiero cambiarlo?
+lo hacemos usando la palabra reservada ``set`` y el nombre de nuestro atributo
+```js
+class Course{
+	...
+    set name(NuevoNombre){
+        this._name = NuevoNombre;
+    }
+}
+cursoProgBasica.name = "";
+```
+Pero para que nos sirve usar esto?
+Pues usando estos métodos podemos agregar condicionales y controlar la informacion que agregen a los objetos
+```js
+class Course{
+	...
+    set name(NuevoNombre){
+        if (NuevoNombre === "Nombre malo"){
+            console.error("Web... error name");
+        }else{
+            this._name = NuevoNombre;
+        }
+    }
+}
+cursoProgBasica.name = "";
+```
+
+### Qué son los getters y setters
+Una función que obtiene un valor de una propiedad se llama getter y una que establece el valor de una propiedad se llama setter.
+
+Esta característica a sido implementada en ES2015, pudiendo modificar el funcionamiento normal de establecer u obtener el valor de una propiedad, a estas se les conoce como accessor properties.
+
+**Funcionamiento**
+
+En ocasiones queremos valores basados en otros valores, para esto los data accessors son bastante útiles.
+
+Para crearlos usamos los keywords get y set
+```js
+const obj = {
+  get prop() {
+    return this.__prop__;
+  },
+  set prop(value) {
+    this.__prop__ = value * 2;
+  },
+};
+
+obj.prop = 12;
+
+console.log(obj.prop); //24
+```
+Creamos un objeto, con una única propiedad, que tiene un getter y un setter. de esta manera cada vez que establezcamos un valor para ``prop`` se multiplicará por dos.
+
+Nota: utilice ``prop`` por convención, pero no implica que es un valor especial, este es un valor normal.
+
+Otra manera de crear un accessor properties es de manera explícita usando ``Object.defineProperty``
+```js
+const obj = {};
+
+Object.defineProperty(obj, //objeto target
+  'prop', //nombre propiedad
+  {
+    enumerable: true,
+    configurable: true,
+    get prop() { //getter
+      return this.__prop__;
+    },
+    set prop(value) { //setter
+      this.__prop__ = value * 2;
+    },
+  });
+obj.prop = 12;
+
+var atr = Object.getOwnPropertyDescriptor(obj, 'prop')
+console.log(atr); 
+```
+La ventaja que tenemos de esta manera, es que podemos establecer los atributos que queremos tenga la propiedad.
+
+# Módulos de ECMAScript 6
