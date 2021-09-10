@@ -326,4 +326,8 @@ console.log(atr);
 ```
 La ventaja que tenemos de esta manera, es que podemos establecer los atributos que queremos tenga la propiedad.
 
-# Módulos de ECMAScript 6
+# Herencia
+
+La herencia nos permite crear “clases madre”, la cual servirá de molde para clases hijas, que compartirán sus métodos y atributos.
+
+Usamos la palabra reservada ``extends``
