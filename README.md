@@ -331,3 +331,14 @@ La ventaja que tenemos de esta manera, es que podemos establecer los atributos q
 La herencia nos permite crear “clases madre”, la cual servirá de molde para clases hijas, que compartirán sus métodos y atributos.
 
 Usamos la palabra reservada ``extends``
+# Polimorfismo
+Muchas formas. Poli = muchas, morfismo = formas. NO es Poliformismo
+
+Es construir métodos con el mismo nombre pero con comportamiento diferente.
+Tipos de polimorfismo:
+
+- Sobrecarga: ocurre cuando existen métodos con el mismo nombre y funcionalidad similar en clases totalmente independientes entre ellas.
+- Paramétrico: El polimorfismo paramétrico es la capacidad para definir varias funciones utilizando el mismo nombre, pero usando parámetros diferentes (nombre y/o tipo).
+- Inclusión: La habilidad para redefinir por completo el método de una superclase en una subclase.
+
+> En JS solo podemos (por ahora) el polimorfismo de inclusión.
